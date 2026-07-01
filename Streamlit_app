@@ -1,0 +1,31 @@
+# Write app.py
+app_code = '''
+import streamlit as st
+import pandas as pd
+import numpy as np
+import joblib
+
+model = joblib.load('car_price_model.pkl')
+encoders = joblib.load('label_encoders.pkl')
+model_columns = joblib.load('model_columns.pkl')
+
+st.title("Car Price Prediction")
+# ... rest of your app code
+'''
+
+with open('car_price_app/app.py', 'w') as f:
+    f.write(app_code)
+
+# Write requirements.txt
+requirements = """streamlit
+pandas
+numpy
+scikit-learn
+xgboost
+joblib"""
+
+with open('car_price_app/requirements.txt', 'w') as f:
+    f.write(requirements)
+
+print("All files:")
+print(os.listdir('car_price_app'))
